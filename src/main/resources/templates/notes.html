@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Notepad</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+<body>
+    <h1>Notes</h1>
+    <table>
+      <tr>
+        <th>Note title</th>
+        <th>Note text</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+      </tr>
+      <tr th:each="note : ${notes}">
+        <td th:text="${note.title}">Note title</td>
+        <td th:text="${note.text}">Note text</td>
+        <td th:text="${note.createdAt}">24 Aug 2024</td>
+        <td th:text="${note.updatedAt}">24 Aug 2024</td>
+      </tr>
+    </table>
+</body>
+</html>
