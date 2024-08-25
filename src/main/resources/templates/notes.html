@@ -8,7 +8,16 @@
     <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 <body>
-    <h1>Notes</h1>
+    <h1>Notepad</h1>
+    <h2>Create a new note</h2>
+    <form method="POST" th:action="@{/notes/create}" th:object="${note}">
+        <label for="title">Note title</label><br>
+        <input type="text" th:field="*{title}" /><br>
+        <label for="text">Note text</label><br>
+        <textarea th:field="*{text}" ></textarea><br>
+        <input type="submit" value="Create" />
+    </form>
+    <h2>Notes</h2>
     <table>
       <tr>
         <th>Note title</th>
