@@ -1,15 +1,16 @@
 package com.albinasalkayeva.notepad;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.Date;
 
 @Data
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Note {
 
     @Id
@@ -18,6 +19,10 @@ public class Note {
 
     private String title;
     private String text;
+
+    @CreatedDate
     private Date createdAt;
+
+    @LastModifiedDate
     private Date updatedAt;
 }
